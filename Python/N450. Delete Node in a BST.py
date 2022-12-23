@@ -23,7 +23,7 @@ class Solution:
             return root
 
         # find max value of leftSubTree
-        maxValue = self.getMaxValueOfLeftSubTree(node.left)
+        maxValue = self.getMaxValue(node.left)
 
         # delete node don't have left sub tree
         if maxValue is False:
@@ -49,14 +49,14 @@ class Solution:
             self.deleteNodeIsLeftSon = False
             return self.findNode(root.right, key)
     
-    def getMaxValueOfLeftSubTree(self, root):
+    def getMaxValue(self, root):
         # delete node don't have left sub tree
         if root is None:
             return False
 
         rightNode = root.right
+        # find max node
         if rightNode.right is None:
-            # find max node
             root.right = rightNode.left
             return rightNode.val
         else:
